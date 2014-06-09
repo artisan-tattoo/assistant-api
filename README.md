@@ -1,5 +1,7 @@
 # Artisan Assitant
 
+[![Build Status](https://travis-ci.org/artisan-tattoo/artisan_assistant.svg)](https://travis-ci.org/artisan-tattoo/artisan_assistant)
+
 This is the source code for http://artisanassistant.com.
 
 ## Requirements
