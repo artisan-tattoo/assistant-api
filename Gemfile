@@ -10,4 +10,6 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
+gem 'minitest-rails'
+
 # gem 'bcrypt', '~> 3.1.7'
