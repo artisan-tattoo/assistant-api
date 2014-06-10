@@ -3,7 +3,7 @@ title: "Development Notebook: Day 0"
 slug: "day-zero"
 ---
 
-This is the first entry in my logs about making Artisan Assitant. Since
+This is the first entry in my logs about making Artisan Assistant. Since
 I'm a programmer, it's "Day 0," and also because it's about the stuff
 I had to do to even bring this simple post to you in the first place.
 
