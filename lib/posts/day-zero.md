@@ -29,7 +29,7 @@ old JavaScript once they've developed good habits. The big win here is removing
 the dependency on a JavaScript runtime to build assets, which always causes me
 problems.
 
-Turbolinks: [...](http://stackoverflow.com/questions/24069674/rails-form-not-working-after-link-to)
+Turbolinks: [...](http://reed.github.io/turbolinks-compatibility/)
 
 JBuilder: I prefer
 [ActiveModel::Serializers](https://github.com/rails-api/active_model_serializers).
