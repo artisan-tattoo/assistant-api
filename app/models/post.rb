@@ -5,7 +5,7 @@ class Post
 
   def self.find(slug)
     path = File.join(Rails.root, "lib/posts/#{slug}.md")
-    contents = File.open(path, "r").read
+    contents = File.read(path)
 
     rendered = Metadown.render(contents)
 
