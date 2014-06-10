@@ -62,6 +62,11 @@ want to use any of the code under a different license, [email
 me](mailto:steve@steveklabnik.com) and I'll probably let you have it under
 BSD/MIT. Probably.
 
+I also plan on blogging each 'working day' about what exactly I did and why.
+I'm hoping that this will be better than making epic commit messages, though
+I'm gonna try to make good ones. Sometimes you have to talk about things
+across commits, and commit messages just aren't a blogging platform.
+
 ## So, let's begin.
 
 Soon, you'll be able to go to
