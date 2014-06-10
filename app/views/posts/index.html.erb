@@ -1,0 +1,11 @@
+<h1>Artisan Assistant Blog</h1>
+
+<p>Here's the blog for Artisan Assistant. Many of these posts will be relevant to programmers and not AA users: those are mostly titled "Developer Notebook."</p>
+
+<ul>
+<% @posts.each do |post| -%>
+ <li>
+   <%= link_to post.title, post %> 
+ </li> 
+<% end %>
+</ul>
