@@ -17,4 +17,6 @@ gem 'minitest-rails'
 # for Heroku, if we ever bother with 'real metal' this can be removed
 gem 'rails_12factor'
 
+gem 'puma'
+
 # gem 'bcrypt', '~> 3.1.7'
