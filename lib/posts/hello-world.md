@@ -3,7 +3,7 @@ title: "Hello, world"
 slug: "hello-world"
 ---
 
-Hi there. Welcome to Artisan Assitant. This blog post lays out the project,
+Hi there. Welcome to Artisan Assistant. This blog post lays out the project,
 what I'm building, and why. Enjoy!
 
 ## What is this?
@@ -42,7 +42,7 @@ This part is more for any programmers reading, so don't worry if you're not
 one.
 
 There aren't enough open source Rails applications in the world, and so I
-watned to build an actual, real-world product that I'm charging money for in
+wanted to build an actual, real-world product that I'm charging money for in
 Rails, so that you can see how I do it. This isn't some fake program that I'm
 using to illustrate a point: It's 100% real. I'm hoping to help my friends make
 some money, earn a little bit of (mostly) passive income to help pay for my
