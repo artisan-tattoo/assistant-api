@@ -1,4 +1,4 @@
-# Artisan Assitant
+# Artisan Assistant
 
 [![Build Status](https://travis-ci.org/artisan-tattoo/artisan_assistant.svg)](https://travis-ci.org/artisan-tattoo/artisan_assistant) [![Code Climate](https://codeclimate.com/github/artisan-tattoo/artisan_assistant.png)](https://codeclimate.com/github/artisan-tattoo/artisan_assistant)
 
