@@ -22,5 +22,5 @@ gem 'puma'
 
 gem 'metadown'
 
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 

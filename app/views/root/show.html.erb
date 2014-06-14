@@ -7,4 +7,8 @@
 <p>Sorry, we're not ready yet! You may want to check out
 <%= link_to "our blog", posts_path %>.</p>
 
-<p>If you have an account, you can <%= link_to "Sign in", sign_in_path %></p>
+<nav>
+  <% unless current_shop -%>
+    <p>If you have an account, you can <%= link_to "Sign in", sign_in_path %></p>
+  <% end %>
+</nav>

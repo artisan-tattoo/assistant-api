@@ -4,8 +4,13 @@
 # which isn't idempotent!
 
 shop = Shop.where(
-  name: "Artisan Tattoo"
+  name: "Artisan Tattoo",
+  email: "artisan@example.com",
 ).first_or_create
+
+shop.password = "password"
+shop.password_confirmation = "password"
+shop.save
 
 artist = Artist.where(
   name: "Jason Angst",

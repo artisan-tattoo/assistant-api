@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show]
 
-  get "/sign_in", to: 'sessions#new'
+  get  "/sign_in", to: "sessions#new"
+  post "/sign_in", to: "sessions#create"
 end
