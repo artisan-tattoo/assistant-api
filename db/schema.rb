@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614172628) do
+ActiveRecord::Schema.define(version: 20140614183547) do
 
   create_table "appointments", force: true do |t|
     t.datetime "date_scheduled"
@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(version: 20140614172628) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "shop_id"
   end
+
+  add_index "artists", ["shop_id"], name: "index_artists_on_shop_id"
 
   create_table "customers", force: true do |t|
     t.string   "name"
