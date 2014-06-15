@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if shop && shop.authenticate(params[:signin][:password])
       session[:shop_id] = shop.id
 
-      redirect_to root_url, notice: "You have signed in successfully!"
+      redirect_to dashboard_path, notice: "You have signed in successfully!"
     else
       flash[:error] = "Sorry, wrong email and/or password. Please try again."
 

@@ -70,4 +70,22 @@ class SignInTest < Capybara::Rails::TestCase
 
     page.current_path.must_equal "/sign_in"
   end
+
+  test "After sucessful sign in, takes you to your dashboard" do
+    shop # make sure our shop exists
+
+    visit sign_in_path
+
+    page.must_have_content "Sign in"
+    page.must_have_button "Sign in"
+
+    within("#session") do
+      fill_in "Email", :with => "artisan@example.com"
+      fill_in "Password", :with => "password"
+    end
+
+    click_button "Sign in"
+
+    page.current_path.must_equal "/dashboard"
+  end
 end
