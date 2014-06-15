@@ -11,3 +11,6 @@
 </ul>
 
 <%= link_to "Ye fine RSS feed", posts_path(format: :rss) -%>
+<% content_for :head_content do %>
+  <%= auto_discovery_link_tag(:rss, posts_path(format: :rss), {title: "Ye fine RSS feed"}) %>
+<% end %>
