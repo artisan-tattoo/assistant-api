@@ -9,6 +9,10 @@ class SessionsController < ApplicationController
       session[:shop_id] = shop.id
 
       redirect_to root_url, notice: "You have signed in successfully!"
+    else
+      flash[:error] = "Sorry, wrong email and/or password. Please try again."
+
+      render :new
     end
   end
 
