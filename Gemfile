@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 gem 'minitest-rails'
+gem 'minitest-rails-capybara', group: :test
 
 # for Heroku, if we ever bother with 'real metal' this can be removed
 gem 'rails_12factor'
@@ -21,5 +22,5 @@ gem 'puma'
 
 gem 'metadown'
 
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 

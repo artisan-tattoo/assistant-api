@@ -1,0 +1,16 @@
+<h1>Sign in</h1>
+
+<section id="session">
+  <%= form_for :signin, method: "POST" do |f| %>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+
+    <%= f.submit "Sign in" %>
+  <% end %>
+</section>

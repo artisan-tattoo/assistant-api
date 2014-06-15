@@ -7,6 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <% unless current_shop -%>
+    <p>If you have an account, you can <%= link_to "Sign in", sign_in_path %></p>
+  <% else -%>
+    <p>You are currently signed in. <%= link_to "Sign out", sign_out_path, method: :delete %></p>
+  <% end %>
+</nav>
+
+<section>
+  <% flash.each do |key, value| -%>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
+</section>
 
 <%= yield %>
 

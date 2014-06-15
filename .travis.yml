@@ -1,6 +1,7 @@
 language: ruby
 rvm:
-- 2.1.1
+  - 2.1.1
+script: bin/rake test:all
 deploy:
   provider: heroku
   app: artisanassistant
