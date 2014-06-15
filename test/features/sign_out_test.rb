@@ -27,10 +27,16 @@ class SignOutTest < Capybara::Rails::TestCase
   end
 
   test "When signed in, the home page has a sign out link" do
-    sign_in 
+    sign_in
 
     visit root_path
  
+    page.must_have_link "Sign out"
+  end
+
+  test "When signed in, the dashboard has a sign out link" do
+    sign_in
+
     page.must_have_link "Sign out"
   end
 end
