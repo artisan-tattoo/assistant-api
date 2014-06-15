@@ -11,7 +11,7 @@
   <% unless current_shop -%>
     <p>If you have an account, you can <%= link_to "Sign in", sign_in_path %></p>
   <% else -%>
-    <p>You are currently signed in. <%= link_to "Sign out", sign_out_path %></p>
+    <p>You are currently signed in. <%= link_to "Sign out", sign_out_path, method: :delete %></p>
   <% end %>
 </nav>
 

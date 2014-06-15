@@ -39,4 +39,15 @@ class SignOutTest < Capybara::Rails::TestCase
 
     page.must_have_link "Sign out"
   end
+
+  test "Signing out properly signs you out" do
+    sign_in
+
+    page.click_link "Sign out"
+
+    page.must_have_link "Sign in"
+    page.wont_have_link "Sign out"
+
+    page.current_path.must_equal root_path
+  end
 end
