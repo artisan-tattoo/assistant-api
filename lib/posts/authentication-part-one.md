@@ -105,7 +105,7 @@ the way, too. I won't repeat myself here:
 
 That last commit is a little big, but I discuss why in the message. :wink:
 
-While signing in works, I havne't done anything to test failure yet, so I'm
+While signing in works, I haven't done anything to test failure yet, so I'm
 not merging this yet. Tomorrow!
 
 ## Build status: still green!
