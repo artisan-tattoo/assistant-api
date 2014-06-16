@@ -1,16 +1,15 @@
-<h1>Sign in</h1>
-
 <section id="session">
-  <%= form_for :signin, method: "POST" do |f| %>
+  <%= form_for :signin, method: "POST", html: { role: "form" } do |f| %>
+    <h2>Sign in</h2>
     <p>
       <%= f.label :email %><br />
-      <%= f.text_field :email %>
+      <%= f.text_field :email, html: { required: true } %>
     </p>
     <p>
       <%= f.label :password %><br />
-      <%= f.password_field :password %>
+      <%= f.password_field :password, html: { required: true } %>
     </p>
 
-    <%= f.submit "Sign in" %>
+    <%= f.submit "Sign in", class: "btn btn-lg btn-primary" %>
   <% end %>
 </section>
