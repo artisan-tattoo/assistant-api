@@ -35,6 +35,8 @@ class ActiveSupport::TestCase
     end
 
     click_button "Sign in"
+
+    shop # this lets us get a reference to the shop that we're signed in as
   end
 
 end
