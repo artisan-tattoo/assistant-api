@@ -22,14 +22,13 @@ class NewArtistTest < Capybara::Rails::TestCase
       click_button "Create Artist"
     end
 
-    # We should only have this one artist in the database. This test is
-    # a little brittle, but it's okay for now. If it breaks in the future,
-    # this is why.
-
-    assert_equal shop.artists.first, Artist.first
 
     page.must_have_content "New Artist created!"
 
     page.current_path.must_equal dashboard_path
+
+    # ensure that we associate the artist with the shop. If we don't,
+    # their name wouldn't appear on this page.
+    page.must_have_content "Jason Angst"
   end
 end
