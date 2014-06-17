@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show]
 
-  resources :artists, only: [:new]
+  resources :artists, only: [:new, :create]
 end
