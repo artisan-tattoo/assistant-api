@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    @artist = Artist.create(artist_params)
+    @artist = current_shop.artists.create(artist_params)
 
     flash[:notice] = "New Artist created!"
 

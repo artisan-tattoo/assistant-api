@@ -10,7 +10,7 @@ class NewArtistTest < Capybara::Rails::TestCase
   end
 
   test "Successfully create a new artist" do
-    sign_in
+    shop = sign_in
 
     visit new_artist_path
  
@@ -21,6 +21,12 @@ class NewArtistTest < Capybara::Rails::TestCase
     assert_difference 'Artist.count', 1 do
       click_button "Create Artist"
     end
+
+    # We should only have this one artist in the database. This test is
+    # a little brittle, but it's okay for now. If it breaks in the future,
+    # this is why.
+
+    assert_equal shop.artists.first, Artist.first
 
     page.must_have_content "New Artist created!"
 
