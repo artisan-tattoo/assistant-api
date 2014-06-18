@@ -11,6 +11,19 @@ class CustomersController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
+  def update
+    @customer = Customer.find(params[:id])
+    @customer.update(customer_params)
+
+    flash[:notice] = "Customer updated!"
+
+    redirect_to dashboard_path
+  end
+
   private
 
   def customer_params
