@@ -6,3 +6,11 @@
 </ul>
 
 <%= link_to "Create a new Artist", new_artist_path %>
+
+<h2>Customers</h2>
+<ul>
+  <% @customers.each do |customer| -%>
+    <li><%= customer.name %></li>
+  <% end %>
+</ul>
+<%= link_to "Create a new Customer", new_customer_path %>
