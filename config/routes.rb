@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
 
   resources :artists, only: [:new, :create]
+  resources :customers, only: [:new]
 end
