@@ -13,6 +13,11 @@ class CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
+    if @customer.shop_id != current_shop.id
+      flash[:error] = "Sorry, you can't do that."
+
+      redirect_to dashboard_path
+    end
   end
 
   def update
