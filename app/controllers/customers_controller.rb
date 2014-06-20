@@ -3,6 +3,10 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
 
+  def show
+    @customer = Customer.find(params[:id])
+  end
+
   def create
     @customer = current_shop.customers.create(customer_params)
 

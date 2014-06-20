@@ -89,4 +89,25 @@ class CustomerTest < Capybara::Rails::TestCase
     # their name wouldn't appear on this page.
     page.must_have_content "Steve Klabnik"
   end
+
+  test "View an existing customer" do
+    shop = sign_in
+    customer = shop.customers.create(
+      name: "Jane Doe",
+      phone: "555 555 5555",
+      email: "jane@example.com",
+      date_on_waiting_list: DateTime.civil(2014, 1, 10, 0, 0, 0, 0),
+      status: 2, # waiting
+      local: true,
+      location: "Pittsburgh, PA",
+      credit: "$10",
+      want: "Super awesome dragon backpiece.",
+      notes: "",
+      shop: shop
+    )
+
+    visit customer_path(customer)
+ 
+    page.must_have_content "Jane Doe"
+  end
 end
