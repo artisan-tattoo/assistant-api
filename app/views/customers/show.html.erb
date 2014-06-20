@@ -1,5 +1,7 @@
 <h1><%= @customer.name %></h1>
 
+<p><%= link_to "Edit this customer's information", edit_customer_path(@customer) %></p>
+
 <table>
     <tr><th>Name</th><td><%= @customer.name %><td/></tr>
     <tr><th>Phone</th><td><%= @customer.phone %><td/></tr>

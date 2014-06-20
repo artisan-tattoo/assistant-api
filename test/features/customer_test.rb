@@ -110,4 +110,25 @@ class CustomerTest < Capybara::Rails::TestCase
  
     page.must_have_content "Jane Doe"
   end
+
+  test "Link to customer edit from customer view" do
+    shop = sign_in
+    customer = shop.customers.create(
+      name: "Jane Doe",
+      phone: "555 555 5555",
+      email: "jane@example.com",
+      date_on_waiting_list: DateTime.civil(2014, 1, 10, 0, 0, 0, 0),
+      status: 2, # waiting
+      local: true,
+      location: "Pittsburgh, PA",
+      credit: "$10",
+      want: "Super awesome dragon backpiece.",
+      notes: "",
+      shop: shop
+    )
+
+    visit customer_path(customer)
+ 
+    page.must_have_link "Edit this customer's information"
+  end
 end
