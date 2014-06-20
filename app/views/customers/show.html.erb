@@ -1,0 +1,16 @@
+<h1><%= @customer.name %></h1>
+
+<p><%= link_to "Edit this customer's information", edit_customer_path(@customer) %></p>
+
+<table>
+    <tr><th>Name</th><td><%= @customer.name %><td/></tr>
+    <tr><th>Phone</th><td><%= @customer.phone %><td/></tr>
+    <tr><th>Email</th><td><%= @customer.email %><td/></tr>
+    <tr><th>Date on the Waiting List</th><td><%= @customer.date_on_waiting_list %><td/></tr>
+    <tr><th>Status</th><td><%= @customer.status %><td/></tr>
+    <tr><th>Local?</th><td><%= @customer.local %><td/></tr>
+    <tr><th>Location</th><td><%= @customer.location %><td/></tr>
+    <tr><th>Credit</th><td><%= @customer.credit %><td/></tr>
+    <tr><th>Want</th><td><%= @customer.want %><td/></tr>
+    <tr><th>Notes</th><td><%= @customer.notes %><td/></tr>
+</table>
