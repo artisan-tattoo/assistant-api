@@ -22,9 +22,14 @@ class CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
 
-    flash[:notice] = "Customer updated!"
+    if @customer.shop_id != current_shop.id
+      flash[:error] = "Sorry, you can't do that."
+    else
+      @customer.update(customer_params)
+
+      flash[:notice] = "Customer updated!"
+    end
 
     redirect_to dashboard_path
   end
