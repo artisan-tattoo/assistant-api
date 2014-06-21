@@ -20,6 +20,25 @@ class SearchTest < Capybara::Rails::TestCase
     page.wont_have_link "Jane Doe"
   end
 
+  test "Search only finds your own customers" do
+    shop = sign_in
+
+    create_search_customers(shop)
+
+    visit dashboard_path
+ 
+    within("#search") do
+      fill_in "q", :with => "Jon"
+    end
+
+    click_button "Search Customers"
+
+    page.current_path.must_equal "/search"
+
+    page.must_have_link "Jon Doe"
+    page.wont_have_link "Jon Other"
+  end
+
   def create_search_customers(shop)
     customer = shop.customers.create(
       name: "Jane Doe",
@@ -47,6 +66,16 @@ class SearchTest < Capybara::Rails::TestCase
       want: "Super awesome dragon backpiece.",
       notes: "",
       shop: shop
+    )
+
+    shop2 = Shop.create(
+      name: "Innocent Shop",
+      email: "innocent@example.com",
+      password: "password",
+      password_confirmation: "password"
+    )
+    customer = shop2.customers.create(
+      name: "Jon Other",
     )
   end
 end
