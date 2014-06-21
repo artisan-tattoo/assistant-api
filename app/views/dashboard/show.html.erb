@@ -14,3 +14,8 @@
   <% end %>
 </ul>
 <%= link_to "Create a new Customer", new_customer_path %>
+
+<%= form_tag("/search", method: "GET", id: "search") do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search Customers") %>
+<% end %>
