@@ -16,8 +16,8 @@ class SearchTest < Capybara::Rails::TestCase
 
     page.current_path.must_equal "/search"
 
-    page.must_have_content "Jon Doe"
-    page.wont_have_content "Jane Doe"
+    page.must_have_link "Jon Doe"
+    page.wont_have_link "Jane Doe"
   end
 
   def create_search_customers(shop)

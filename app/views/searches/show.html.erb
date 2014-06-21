@@ -2,6 +2,6 @@
 
 <ul>
   <% @results.each do |result| -%>
-    <li><%= result.name %></li>
+    <li><%= link_to result.name, customer_path(result) %></li>
   <% end %>
 </ul>
