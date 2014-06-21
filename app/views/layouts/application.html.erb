@@ -35,7 +35,7 @@
             <% unless current_shop -%>
               <li><%= link_to "Sign in", sign_in_path %></li>
             <% else -%>
-              <li class="active"><a href="#">Dashboard</a></li>
+              <li class="active"><%= link_to "Dashboard", dashboard_path%></li>
               <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
             <% end %>
           </ul>
