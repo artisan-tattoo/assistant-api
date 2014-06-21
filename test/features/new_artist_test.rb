@@ -16,6 +16,9 @@ class NewArtistTest < Capybara::Rails::TestCase
  
     within("#new_artist") do
       fill_in "Name", :with => "Jason Angst"
+      fill_in "Email", :with => "jasonangst@gmail.com"
+      fill_in "Password", :with => "hunter2"
+      fill_in "Password confirmation", :with => "hunter2"
     end
 
     assert_difference 'Artist.count', 1 do

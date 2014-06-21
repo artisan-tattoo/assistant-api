@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614195117) do
+ActiveRecord::Schema.define(version: 20140621024233) do
 
   create_table "appointments", force: true do |t|
     t.datetime "date_scheduled"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20140614195117) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "shop_id"
+    t.string   "email"
+    t.string   "password_digest"
   end
 
   add_index "artists", ["shop_id"], name: "index_artists_on_shop_id"
