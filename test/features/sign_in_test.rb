@@ -10,6 +10,15 @@ class SignInTest < Capybara::Rails::TestCase
     )
   end
 
+  let(:artist) do
+    shop.artists.create(
+      name: "Jason Angst",
+      email: "jason.angst@gmail.com",
+      password: "password",
+      password_confirmation: "password",
+    )
+  end
+
   test "The home page has a sign in link" do
     visit root_path
  
@@ -26,6 +35,25 @@ class SignInTest < Capybara::Rails::TestCase
 
     within("#session") do
       fill_in "Email", :with => "artisan@example.com"
+      fill_in "Password", :with => "password"
+    end
+
+    click_button "Sign in"
+
+    page.must_have_content "You have signed in successfully!"
+    page.wont_have_content "Sign in"
+  end
+
+  test "An existing artist can sign in" do
+    artist
+
+    visit sign_in_path
+
+    page.must_have_content "Sign in"
+    page.must_have_button "Sign in"
+
+    within("#session") do
+      fill_in "Email", :with => "jason.angst@gmail.com"
       fill_in "Password", :with => "password"
     end
 
