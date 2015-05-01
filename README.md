@@ -25,6 +25,8 @@ You'll need Ruby 2.1.1, and postgresql, with development headers. To get going:
 ```bash
 $ git clone https://github.com/artisan-tattoo/artisan_assistant
 $ cd artisan_assistant
-$ bundle
+$ bin/bundle
+$ bin/rake db:migrate
+$ bin/rake db:seed
 $ bin/rails s
 ```
