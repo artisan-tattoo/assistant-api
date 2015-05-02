@@ -1,14 +1,21 @@
 class ArtistsController < ApplicationController
-  def new
-    @artist = Artist.new
-  end
 
   def create
     @artist = current_shop.artists.create(artist_params)
+  end
 
-    flash[:notice] = "New Artist created!"
+  def show
+    @artist = Artist.find(params[:id])
+    render json: @artist, content_type: "application/json"
+  rescue Errno::ENOENT
+    raise ActionController::RoutingError.new(
+      "Sorry, no artist exists with slug #{params[:id]}"
+    )
+  end
 
-    redirect_to dashboard_path
+  def update
+    @artist = Artist.find(params[:id])
+    @artist = current_shop.artists.create(artist_params)
   end
 
   private
