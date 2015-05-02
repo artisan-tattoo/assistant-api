@@ -1,47 +1,21 @@
 class CustomersController < ApplicationController
-  def new
-    @customer = Customer.new
-  end
 
   def show
     @customer = Customer.find(params[:id])
-
-    if @customer.shop_id != current_shop.id
-      flash[:error] = "Sorry, you can't do that."
-
-      redirect_to dashboard_path
-    end
+    render json: @customer, content_type: "application/json"
+  rescue Errno::ENOENT
+    raise ActionController::RoutingError.new(
+      "Sorry, no customer exists with slug #{params[:id]}"
+    )
   end
 
   def create
     @customer = current_shop.customers.create(customer_params)
-
-    flash[:notice] = "New Customer created!"
-
-    redirect_to dashboard_path
-  end
-
-  def edit
-    @customer = Customer.find(params[:id])
-    if @customer.shop_id != current_shop.id
-      flash[:error] = "Sorry, you can't do that."
-
-      redirect_to dashboard_path
-    end
   end
 
   def update
     @customer = Customer.find(params[:id])
-
-    if @customer.shop_id != current_shop.id
-      flash[:error] = "Sorry, you can't do that."
-    else
-      @customer.update(customer_params)
-
-      flash[:notice] = "Customer updated!"
-    end
-
-    redirect_to dashboard_path
+    @customer.update(customer_params)
   end
 
   private

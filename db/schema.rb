@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140621024233) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "appointments", force: true do |t|
     t.datetime "date_scheduled"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20140621024233) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "shop_id"
     t.string   "email"
     t.string   "password_digest"
+    t.integer  "shop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "artists", ["shop_id"], name: "index_artists_on_shop_id"
@@ -48,18 +48,20 @@ ActiveRecord::Schema.define(version: 20140621024233) do
     t.text     "want"
     t.text     "notes"
     t.integer  "shop_id"
+    t.integer  "artist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "customers", ["artist_id"], name: "index_customers_on_artist_id"
   add_index "customers", ["shop_id"], name: "index_customers_on_shop_id"
 
   create_table "shops", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "email"
     t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

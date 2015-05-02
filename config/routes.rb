@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show]
 
-  resources :artists, only: [:new, :create]
+  resources :shops, only: [:new, :create, :edit, :update, :show]
+  resources :artists, only: [:new, :create, :edit, :update, :show]
   resources :customers, only: [:new, :create, :edit, :update, :show]
+  resources :appointments, only: [:new, :create, :edit, :update, :show]
+
 
   resource :search, only: [:show]
 end

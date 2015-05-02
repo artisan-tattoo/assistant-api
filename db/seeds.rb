@@ -17,6 +17,10 @@ artist = Artist.where(
   shop: shop,
 ).first_or_create
 
+artist.password = "password"
+artist.password_confirmation = "password"
+artist.save
+
 customer = Customer.where(
   name: "Jane Doe",
   phone: "555 555 5555",
@@ -28,7 +32,7 @@ customer = Customer.where(
   credit: "$10",
   want: "Super awesome dragon backpiece.",
   notes: "",
-  shop: shop
+  artist: artist
 ).first_or_create
 
 appointment = Appointment.where(

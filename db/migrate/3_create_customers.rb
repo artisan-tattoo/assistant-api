@@ -12,6 +12,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.text :want
       t.text :notes
       t.references :shop, index: true
+      t.references :artist, index: true
 
       t.timestamps
     end
