@@ -23,8 +23,8 @@ if you're unsure.
 You'll need Ruby 2.1.1, and postgresql, with development headers. To get going:
 
 ```bash
-$ git clone https://github.com/artisan-tattoo/artisan_assistant
-$ cd artisan_assistant
+$ git clone https://github.com/artisan-tattoo/assistant-api.git
+$ cd assistant-api
 $ bin/bundle
 $ bin/rake db:migrate
 $ bin/rake db:seed
