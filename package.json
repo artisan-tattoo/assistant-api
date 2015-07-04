@@ -33,6 +33,7 @@
     "sqlite3": "^3.0.4"
   },
   "devDependencies": {
-    "jshint": "^2.5.11"
+    "jshint": "^2.5.11",
+    "sqlite3": "^3.0.8"
   }
 }

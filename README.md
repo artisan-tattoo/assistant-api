@@ -6,7 +6,7 @@ Artisan Assistant API is an application built in [Node JS](https://nodejs.org/) 
 
 To run this app, please install [Node](https://nodejs.org/download/). 
 
-This application is configured to be backed by a [`PostgreSQL`](http://www.postgresql.org/) database. You can install this, [here](http://www.postgresql.org/download/).
+This application is configured to be backed by a [`PostgreSQL`](http://www.postgresql.org/) database in production and [`SQLite`](https://www.sqlite.org/) in development. To use PostgreSQL locally, you will need to [install it](http://www.postgresql.org/download/).
 
 If you would like to change the database this application uses, update the [`knexfile`](https://github.com/artisan-tattoo/assistant-API-endpoints/blob/master/knexfile.js). NOTE: You may also need to update the types in the [migrations](https://github.com/artisan-tattoo/assistant-API-endpoints/tree/master/migrations).
 
