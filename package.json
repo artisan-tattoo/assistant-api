@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node index",
-    "lint": "jshint index.js"
+    "lint": "jshint *.js migrations/*.js"
   },
   "dependencies": {
     "bluebird": "^2.9.13",
@@ -29,6 +29,7 @@
     "express": "^4.10.6",
     "express-routebuilder": "^2.1.0",
     "knex": "^0.8.0",
+    "pg": "^4.4.0",
     "sqlite3": "^3.0.4"
   },
   "devDependencies": {
