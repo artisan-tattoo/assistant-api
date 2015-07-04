@@ -4,7 +4,7 @@ exports.up = function (knex) {
       t.increments('id');
       t.integer('artist_id').notNullable().references('id').inTable('artists');
       t.integer('customer_id').notNullable().references('id').inTable('customers');
-      t.dateTime('date_scheduled').nonNullable();
+      t.dateTime('date_scheduled').notNullable();
       t.text('description');
     });
 };
