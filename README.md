@@ -1,5 +1,9 @@
 # Artisan Tattoo Assistant - API
 
+[![travis-status](https://travis-ci.org/artisan-tattoo/assistant-api.svg)](https://travis-ci.org/artisan-tattoo/assistant-api)
+[![code-climate](https://d3s6mut3hikguw.cloudfront.net/github/artisan-tattoo/assistant-api/badges/gpa.svg)](https://codeclimate.com/github/artisan-tattoo/assistant-api)
+[![dependencies](https://david-dm.org/artisan-tattoo/assistant-api.svg)](https://david-dm.org/artisan-tattoo/assistant-api)
+
 ## Prerequisites
 
 #### NodeJS
