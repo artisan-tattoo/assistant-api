@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node index",
-    "lint": "jshint *.js migrations/*.js"
+    "lint": "jshint *.js migrations/*.js src/**/**/*.js"
   },
   "dependencies": {
     "bluebird": "^2.9.13",
