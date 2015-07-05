@@ -31,7 +31,9 @@
     "express": "^4.10.6",
     "express-routebuilder": "^2.1.0",
     "knex": "^0.8.0",
-    "pg": "^4.4.0"
+    "pg": "^4.4.0",
+    "passport": "^0.2.2",
+    "passport-http": "^0.2.2"
   },
   "devDependencies": {
     "jshint": "^2.5.11",
