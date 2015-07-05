@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node index",
-    "lint": "jshint *.js migrations/*.js src/**/**/*.js",
+    "lint": "jshint *.js migrations/*.js src/**/**/*.js src/index.js",
     "db:setup": "knex migrate:latest && knex seed:run",
     "db:reset": "rm dev.db && npm run db:setup"
   },
