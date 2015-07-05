@@ -1,23 +1,20 @@
 var Promise = require('bluebird');
 
-exports.find = function(model, email, password) {
+exports.find = function(model, email, password, callback) {
   var result;
-  
   model.query({
     where: { email: email }
   }).fetch()
   .then(function(record) {
     if (password === "password") {
-      result = record;
-      return true;
+      console.log("Record: " + record);
+      if (typeof callback === "function") {
+        callback(record);
+      }
+    } else {
+      callback(false);
     }
-
-    return false;
   });
-
-  console.log(result);
-
-  return result;
 }
 
 module.exports = exports;

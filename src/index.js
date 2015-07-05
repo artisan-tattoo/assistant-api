@@ -16,17 +16,17 @@ const passport = require('passport');
 const BasicStrategy = require('passport-http').BasicStrategy;
 
 var Store = require('./modules/stores/model');
-var Artist = require('./modules/artists/model');
 
 passport.use(new BasicStrategy({
   },
   function(email, password, done) {
-    var model = Authentication.find(Store, email, password) || Authentication.find(Artist, email, password);
-    if (!model) {
-      return done(null, false, { message: 'Wrong username or password' });
-    } else {
-      return done(null, model);
-    }
+    Authentication.find(Store, email, password, function(model) {
+      if (!model) {
+        return done(null, false, { message: 'Wrong username or password' });
+      } else {
+        return done(null, model);
+      }
+    });
   }
 ));
 
