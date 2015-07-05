@@ -3,6 +3,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const modulePath = path.join(__dirname, 'modules');
 const resources = fs.readdirSync(modulePath);
@@ -32,6 +33,7 @@ passport.use(new BasicStrategy({
 
 app.use(passport.initialize());
 
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({
   type: ['application/json', 'application/vnd.api+json']
