@@ -16,7 +16,7 @@ module.exports = {
   production: {
     client: 'pg',
     debug: false,
-    connection: 'postgres:///artisan',
+    connection: process.env.DATABASE_URL,
     directory: path.resolve(__dirname, '../migrations'),
     migrations: {
       tableName: 'migrations'
