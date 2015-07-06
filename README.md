@@ -26,8 +26,8 @@ $ npm install knex -g
 ## Up and Running
 
 ```
-$ git clone git@github.com:artisan-tattoo/assistant-API-endpoints.git
-$ cd assistant-API-endpoints
+$ git clone git@github.com:artisan-tattoo/assistant-api.git
+$ cd assistant-api
 $ npm install
 $ npm run db:setup
 $ npm start
