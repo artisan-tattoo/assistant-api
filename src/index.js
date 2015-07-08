@@ -34,6 +34,9 @@ passport.use(new BasicStrategy({
 app.use(passport.initialize());
 
 app.use(cors());
+
+app.use(passport.authenticate('basic', { session: false }));
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({
   type: ['application/json', 'application/vnd.api+json']
@@ -44,12 +47,6 @@ resources.forEach(function (resource) {
   app.use(API.endpoint(resource));
 });
 
-app.get('/test', 
-  passport.authenticate('basic', { session: false }),
-  function (request, response) {
-    response.send(request.user, null, 2);
-  });
-
 app.get('/v1', function (request, response) {
   response.set('Content-Type', 'application/json');
   response.send(JSON.stringify(API.index(), null, 2));
@@ -58,5 +55,6 @@ app.get('/v1', function (request, response) {
 app.get('/', function (request, response) {
   response.redirect('/v1');
 });
+
 
 module.exports = app;
