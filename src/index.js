@@ -19,65 +19,46 @@ const JwtStrategy = require('passport-jwt').Strategy;
 
 var Store = require('./modules/stores/model');
 
-var opts = {}
+var opts = {};
 opts.secretOrKey = 'secret';
 opts.issuer = "accounts.examplesoft.com";
 opts.audience = "yoursite.net";
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-    console.log(jwt_payload);
-/*
-    User.findOne({id: jwt_payload.sub}, function(err, user) {
-        if (err) {
-            return done(err, false);
-        }
-        if (user) {
-            done(null, user);
-        } else {
-            done(null, false);
-            // or you could create a new account
-        }
-    });
-*/
-}));
+   var userId = jwt_payload.sub;
+  // fetch user from database
+  // var user = ... User.findById(subject) ;
 
-/*
-passport.use(new BasicStrategy({
-  },
-  function(email, password, done) {
-    Authentication.find(Store, email, password, function(model) {
-      if (!model) {
-        return done(null, false, { message: 'Wrong username or password' });
-      } else {
-        return done(null, model);
-      }
-    });
-  }
-));
-*/
+  var user = { name: 'steve', email: 'email@steve', id: userId };
+  done(null, user);
+}));
 
 app.use(passport.initialize());
-
-app.use('*', cors({
-          origin: '*',
-          allowedHeaders: ['Authorization', 'Content-Type'],
-            methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET', 'HEAD']
-}));
-
-app.use(passport.authenticate('jwt', { session: false }));
-
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({
   type: ['application/json', 'application/vnd.api+json']
 }));
 
-resources.forEach(function (resource) {
-  API.register(resource);
-  app.use(API.endpoint(resource));
-});
-
 app.get('/v1', function (request, response) {
   response.set('Content-Type', 'application/json');
   response.send(JSON.stringify(API.index(), null, 2));
+});
+
+app.post('/signup', function(request, response) {
+  var token = JWT.sign({ sub: 'userId' }, "secret" );
+  response.json({ token: token });
+});
+
+app.get('/', function (request, response) {
+  response.redirect('/v1');
+});
+
+app.use(passport.authenticate('jwt', { session: false }));
+// authenticated endpoints below
+
+resources.forEach(function (resource) {
+  API.register(resource);
+  app.use(API.endpoint(resource));
 });
 
 app.get('/sessions', function (request, response) {
@@ -85,14 +66,5 @@ app.get('/sessions', function (request, response) {
   response.send(JSON.stringify(API.index(), null, 2));
 });
 
-app.get('/', function (request, response) {
-  response.redirect('/v1');
-});
-
-app.post('/signup', function(request, response) {
-  var token = JWT.sign(opts, "lolfornow" );
-  response.json({ token: token });
-});
-
-
 module.exports = app;
+
