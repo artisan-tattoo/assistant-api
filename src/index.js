@@ -13,6 +13,7 @@ const app = express();
 const API = require('./classes/api');
 const Authentication = require('./classes/authentication');
 
+const JWT = require('jsonwebtoken');
 const passport = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
 
@@ -56,7 +57,11 @@ passport.use(new BasicStrategy({
 
 app.use(passport.initialize());
 
-app.use('*', cors());
+app.use('*', cors({
+          origin: '*',
+          allowedHeaders: ['Authorization', 'Content-Type'],
+            methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET', 'HEAD']
+}));
 
 app.use(passport.authenticate('jwt', { session: false }));
 
@@ -82,6 +87,11 @@ app.get('/sessions', function (request, response) {
 
 app.get('/', function (request, response) {
   response.redirect('/v1');
+});
+
+app.post('/signup', function(request, response) {
+  var token = JWT.sign(opts, "lolfornow" );
+  response.json({ token: token });
 });
 
 
