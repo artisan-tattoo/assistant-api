@@ -14,10 +14,32 @@ const API = require('./classes/api');
 const Authentication = require('./classes/authentication');
 
 const passport = require('passport');
-const BasicStrategy = require('passport-http').BasicStrategy;
+const JwtStrategy = require('passport-jwt').Strategy;
 
 var Store = require('./modules/stores/model');
 
+var opts = {}
+opts.secretOrKey = 'secret';
+opts.issuer = "accounts.examplesoft.com";
+opts.audience = "yoursite.net";
+passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
+    console.log(jwt_payload);
+/*
+    User.findOne({id: jwt_payload.sub}, function(err, user) {
+        if (err) {
+            return done(err, false);
+        }
+        if (user) {
+            done(null, user);
+        } else {
+            done(null, false);
+            // or you could create a new account
+        }
+    });
+*/
+}));
+
+/*
 passport.use(new BasicStrategy({
   },
   function(email, password, done) {
@@ -30,12 +52,13 @@ passport.use(new BasicStrategy({
     });
   }
 ));
+*/
 
 app.use(passport.initialize());
 
-app.use(cors());
+app.use('*', cors());
 
-app.use(passport.authenticate('basic', { session: false }));
+app.use(passport.authenticate('jwt', { session: false }));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({
@@ -48,6 +71,11 @@ resources.forEach(function (resource) {
 });
 
 app.get('/v1', function (request, response) {
+  response.set('Content-Type', 'application/json');
+  response.send(JSON.stringify(API.index(), null, 2));
+});
+
+app.get('/sessions', function (request, response) {
   response.set('Content-Type', 'application/json');
   response.send(JSON.stringify(API.index(), null, 2));
 });

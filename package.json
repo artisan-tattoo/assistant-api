@@ -32,7 +32,7 @@
     "express-routebuilder": "^2.1.0",
     "knex": "^0.8.0",
     "passport": "^0.2.2",
-    "passport-http": "^0.2.2",
+    "passport-jwt": "^1.1.0",
     "pg": "^4.4.0"
   },
   "devDependencies": {
