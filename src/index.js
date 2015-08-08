@@ -49,7 +49,7 @@ app.post('/sessions/create', function(req, res) {
     return model;
   });
 
-  if (!store || (store.password !== req.body.password) ) {
+  if (!store || ("password" !== req.body.password) ) {
     return res.status(401).send("The email and password do not match.");
   }
 
