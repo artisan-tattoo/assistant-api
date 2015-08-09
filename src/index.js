@@ -15,10 +15,10 @@ const bcrypt = require('bcryptjs');
 
 const API = require('./classes/api');
 
-const config = require('./config.json');
+const secret = process.env.API_SECRET || "lolnotasecret";
 const jwt = require('express-jwt');
 const jwtCheck = jwt({
-  secret: config.secret
+  secret: secret
 });
 
 app.use(cors());
@@ -36,7 +36,7 @@ const jwtoken = require('jsonwebtoken');
 
 var createToken = function(store) {
   var store_nopassword = delete store.password;
-  return jwtoken.sign(store_nopassword, config.secret, { expiresInMinutes: 60*5 });
+  return jwtoken.sign(store_nopassword, secret, { expiresInMinutes: 60*5 });
 };
 
 app.post('/sessions/create', function(req, res) {
