@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
       name: "Steve",
       phone: "412 555 5555",
       email: "steve@example.com",
-      dateonwaitinglist: new Date(),
+      dateonwaitinglist: (new Date()).toString(),
       status: 1,
       local: false,
       location: "Brooklyn",
