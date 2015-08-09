@@ -31,6 +31,7 @@
     "express": "^4.10.6",
     "express-jwt": "^3.0.1",
     "express-routebuilder": "^2.1.0",
+    "jsonwebtoken": "^5.0.4",
     "knex": "^0.8.0",
     "pg": "^4.4.0"
   },
