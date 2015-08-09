@@ -1,3 +1,7 @@
+const bcrypt = require('bcryptjs');
+const salt = bcrypt.genSaltSync(10);
+const pass_hash = bcrypt.hashSync("password", salt);
+
 exports.seed = function(knex, Promise) {
   return Promise.join(
 
@@ -5,7 +9,8 @@ exports.seed = function(knex, Promise) {
     knex('stores').insert({
       id: 1,
       name: "Artisan Tattoo",
-      email: "artisan@example.com"
+      email: "artisan@example.com",
+      password_hash: pass_hash
     }),
 
     knex('artists').del(),

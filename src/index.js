@@ -11,6 +11,8 @@ const Store = require('./modules/stores/model');
 
 const app = express();
 
+const bcrypt = require('bcryptjs');
+
 const API = require('./classes/api');
 
 const config = require('./config.json');
@@ -46,15 +48,14 @@ app.post('/sessions/create', function(req, res) {
     email: req.body.email
   }).fetch()
   .then(function(model) {
-    return model;
-  });
 
-  if (!store || ("password" !== req.body.password) ) {
-    return res.status(401).send("The email and password do not match.");
-  }
+    if (!model || !bcrypt.compareSync(req.body.password, model.get('password_hash'))) {
+      return res.status(401).send("The email and password do not match.");
+    }
 
-  res.status(201).send({
-    id_token: createToken(store)
+    res.status(201).send({
+      id_token: createToken(store)
+    });
   });
 });
 
