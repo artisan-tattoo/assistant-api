@@ -6,7 +6,7 @@ exports.up = function (knex) {
       t.string('name').notNullable();
       t.string('phone').notNullable();
       t.string('email');
-      t.dateTime('dateonwaitinglist');
+      t.dateTime('date_on_waiting_list');
       t.integer('status');
       t.boolean('local');
       t.string('location');
