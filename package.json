@@ -22,6 +22,7 @@
     "db:reset": "rm dev.db && npm run db:setup"
   },
   "dependencies": {
+    "bcryptjs": "^2.2.1",
     "bluebird": "^2.9.13",
     "body-parser": "^1.10.0",
     "bookshelf": "^0.7.9",

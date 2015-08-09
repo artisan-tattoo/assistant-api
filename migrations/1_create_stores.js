@@ -2,6 +2,7 @@ exports.up = function (knex) {
   return knex.schema
     .createTable('stores', function (t) {
       t.increments('id');
+      t.string('password_hash').notNullable();
       t.string('name').notNullable();
       t.string('email').notNullable();
     });
