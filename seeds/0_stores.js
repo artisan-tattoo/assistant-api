@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
     knex('stores').insert({
       name: "Artisan Tattoo",
       email: "artisan@example.com",
-      password_hash: pass_hash
+      "password-hash": pass_hash
     })
   );
 };
