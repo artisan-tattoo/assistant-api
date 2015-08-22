@@ -10,8 +10,8 @@ var to_underscore = function(string) {
   return string.replace(/-/g, '_');
 }
 
-router.post('*', function(req, res, next) {
-  if(req.body) {
+router.use(function(req, res, next) {
+  if(req.body.data) {
     var attrs = Object.keys(req.body.data.attributes);
     for (var i = 0; i < attrs.length; i++) {
       if (attrs[i].indexOf('-') !== -1) {
@@ -20,6 +20,7 @@ router.post('*', function(req, res, next) {
       }
     }
   }
+
   next();
 });
 
