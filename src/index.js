@@ -49,7 +49,7 @@ app.post('/sessions/create', function(req, res) {
   }).fetch()
   .then(function(model) {
 
-    if (!model || !bcrypt.compareSync(req.body.password, model.get('password_hash'))) {
+    if (!model || !bcrypt.compareSync(req.body.password, model.get('password-hash'))) {
       return res.status(401).send("The email and password do not match.");
     }
 
