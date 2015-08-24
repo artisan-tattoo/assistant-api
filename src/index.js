@@ -41,7 +41,14 @@ var createToken = function(store) {
 
 app.post('/sessions/create', function(req, res) {
   if (!req.body.email || !req.body.password) {
-    return res.status(400).send("You must send the email and the password");
+    var error = {
+      errors: [{
+        "status": "400",
+        "title": "Incomplete Credentials",
+        "detail": "You must send the email and the password."
+      }]
+    };
+    return res.status(400).send(JSON.stringify(error));
   }
 
   var store = Store.where({
@@ -50,7 +57,14 @@ app.post('/sessions/create', function(req, res) {
   .then(function(model) {
 
     if (!model || !bcrypt.compareSync(req.body.password, model.get('password-hash'))) {
-      return res.status(401).send("The email and password do not match.");
+      var error = {
+        errors: [{
+          "status": "401",
+          "title": "Incorrect Credentials",
+          "detail": "The email and password do not match."
+        }]
+      };
+      return res.status(401).send(JSON.stringify(error));
     }
 
     res.status(201).send({
