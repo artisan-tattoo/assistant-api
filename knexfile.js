@@ -17,7 +17,7 @@ module.exports = {
     client: 'pg',
     debug: false,
     connection: process.env.DATABASE_URL,
-    directory: path.resolve(__dirname, '../migrations'),
+    directory: path.resolve(__dirname, 'migrations'),
     migrations: {
       tableName: 'migrations'
     }

@@ -1,14 +1,17 @@
 const DB = require('../src/classes/database');
-const config = require('./knexfile');
+const config = require('../knexfile');
 const store = require('./fixtures/stores').user;
+const artist = require('./fixtures/artists').mock_resource;
 
 module.exports = {
   reset: function () {
-    return DB.knex.migrate.rollback(config).then(function () {
-      return DB.knex.migrate.latest(config);
+    DB.knex.schema.dropTable('customers');
+    DB.knex.schema.dropTable('artists');
+    DB.knex.schema.dropTable('stores');
+    return DB.knex.migrate.latest(config).then(function(){
+      return DB.knex('stores').insert(store).then(function(){
+        return DB.knex('artists').insert(artist);
+      });
     });
-  },
-  addUser: function() {
-    DB.knex('stores').insert(store);
   }
 }

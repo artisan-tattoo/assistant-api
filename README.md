@@ -43,3 +43,5 @@ Artisan Assitant API uses [`npm` scripts](https://docs.npmjs.com/misc/scripts) t
 - `npm run db:setup`: creates db, runs migrations and seeds
 - `npm run db:reset`: drops db, then runs `db:setup`
 - `npm run lint`: lints the javascript given options determined in `.jshintrc`
+- `npm run test:build`: builds tests using the tyr test suite
+- `npm run test`: runs tests

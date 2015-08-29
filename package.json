@@ -17,9 +17,11 @@
   },
   "scripts": {
     "start": "node index",
-    "lint": "jshint *.js migrations/*.js src/**/**/*.js src/index.js",
+    "lint": "jshint *.js test/resources/*.js migrations/*.js src/**/**/*.js src/index.js",
     "db:setup": "knex migrate:latest && knex seed:run",
-    "db:reset": "rm dev.db && npm run db:setup"
+    "db:reset": "rm dev.db && npm run db:setup",
+    "test:build": "node test/tyr",
+    "test": "mocha test/"
   },
   "dependencies": {
     "bcryptjs": "^2.2.1",
