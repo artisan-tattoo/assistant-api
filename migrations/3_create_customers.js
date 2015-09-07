@@ -2,7 +2,7 @@ exports.up = function (knex) {
   return knex.schema
     .createTable('customers', function(t) {
       t.increments('id');
-      t.integer('artist-id').notNullable().references('id').inTable('artists');
+      t.integer('artist_id').notNullable().references('id').inTable('artists');
       t.string('name').notNullable();
       t.string('phone').notNullable();
       t.string('email');
