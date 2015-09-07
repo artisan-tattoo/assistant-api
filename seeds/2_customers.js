@@ -1,7 +1,7 @@
 exports.seed = function(knex, Promise) {
   return Promise.join(
     knex('customers').insert({
-      "artist-id": 1,
+      artist_id: 1,
       name: "Steve",
       phone: "412 555 5555",
       email: "steve@example.com",
