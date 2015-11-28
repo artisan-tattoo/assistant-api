@@ -13,8 +13,8 @@ const instanceProps = {
 const classProps = {
   typeName: 'customers',
   filters: {
-    artist_id: function (qb, value) {
-      return qb.whereIn('artist_id', value);
+    "artist-id": function (qb, value) {
+      return qb.whereIn('artist-id', value);
     }
   },
   relations: [

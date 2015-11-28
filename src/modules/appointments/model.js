@@ -13,11 +13,11 @@ const instanceProps = {
 const classProps = {
   typeName: 'appointments',
   filters: {
-    artist_id: function (qb, value) {
-      return qb.whereIn('artist_id', value);
+    "artist-id": function (qb, value) {
+      return qb.whereIn('artist-id', value);
     },
-    customer_id: function (qb, value) {
-      return qb.whereIn('customer_id', value);
+    "customer-id": function (qb, value) {
+      return qb.whereIn('customer-id', value);
     }
   },
   relations: [
